@@ -13,9 +13,9 @@ def rewrite_view(request):
             if not text:
                 return JsonResponse({"error": "Text is required"}, status=400)
             
-            formal_text = rewrite_text(text, "formal")
-            casual_text = rewrite_text(text, "casual")
-            motivational_text = rewrite_text(text, "motivational")
+            formal_text = rewrite_text(text, "formal",temperature=0.2)
+            casual_text = rewrite_text(text, "casual",temperature=0.9)
+            motivational_text = rewrite_text(text, "motivational",temperature=0.6)
             
             return JsonResponse({
                 "formal": formal_text,
